@@ -22,8 +22,8 @@ Current Robot Code
 ## Eletrical To-Dos
 - [x] Wire Drive
 - [x] Rewire Drive /(first time)
-- [ ] Rewire Drive /(second time)
-- [ ] Add something else to progrma besides drive motors
+- [x] Rewire Drive /(second time)
+- [ ] Add something else to program besides drive motors
 # Robot Program Status
 ## Tested
 Has the robot been functional since last electrical change on Robot
