@@ -20,8 +20,8 @@ public final class Constants {
 
     public static final class ControlCon{
 
-        public static final int kLeftStickPort = 1;
-        public static final int kRightStickPort = 0;
+        public static final int kLeftStickPort = 0;
+        public static final int kRightStickPort = 1;
 
         public static final class Drive{
             public static final boolean kEnableDefaltDrive = true;
@@ -72,6 +72,9 @@ public final class Constants {
         public static final int kRightMotor1Port = 1;
         public static final int kRightMotor2Port = 2;
 
+        public static final int kFlyMotor1 = 5;
+        public static final int kFlyMotor2 = 6;
+
         //public static final int kPDHubPort = 11; //power distrubution hub
         //public static final int kPSHubPort = 12; //pnumatics hub
     }
@@ -100,5 +103,62 @@ public final class Constants {
         
         public static double kMaxOutput = 0.2;
         public static double kMinOutput = -0.2;
+    }
+    public static final class FlyCon{
+        public static final boolean kMotor1Invert = false;
+        public static final boolean kMotor2Invert = true;
+
+        public static final class PID{
+            public static final double kP = 0.5;
+            public static final double kI = 0;
+            public static final double kD = 0;
+
+        }
+    }
+
+    public static final class UnitConversion{
+
+        public static final class custom{
+
+            public static final double RPMVoltageConversionFactor = 1;
+
+            public static final double RPMToVoltageConverter(double varable){
+                varable = varable*RPMVoltageConversionFactor;
+                return varable;
+            }
+        }
+        public static final class length{
+
+            public static final double cFootMeter = 3.28084;
+            public static final double cMileKilo = 1.60934;
+
+            public static final double MeterToFeet(double meters){
+                double feet = meters*cFootMeter;
+                return feet;
+            }
+            public static final double FeetToMeter(double feet){
+                double meters = feet/cFootMeter;
+                return meters;
+            }
+        }
+        public static final class angle{
+
+            public static final double cDegRad = 57.2958;
+            public static final double cGradDeg = 1.11111;
+            public static final double cMinDeg = 60;
+            public static final double cMinGrad = 54;
+            public static final double cMinRad = 3437.75;
+            public static final double cGradRad = 63.662;
+
+            public static double DegToRad(double degrees){
+                double radians = degrees/cDegRad;
+                return radians;
+            }
+            public static double RadToDeg(double radians){
+                double degrees = radians*cDegRad;
+                return degrees;
+            }
+        }
+        
     }
 }

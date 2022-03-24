@@ -28,8 +28,8 @@ public class DriveSubsystem extends SubsystemBase {
   private final RelativeEncoder driveEncoderL;
   private final RelativeEncoder driveEncoderR;
 
-  private double testVar = 0;
-  private double testVar2 = 0;
+  //private double testVar = 0;
+  //private double testVar2 = 0;
   
   private DifferentialDrive drivetrain;
   
@@ -76,11 +76,12 @@ public class DriveSubsystem extends SubsystemBase {
 
     //just some test values
 
-    testVar = SmartDashboard.getNumber("test Var", 0);
+   /*testVar = SmartDashboard.getNumber("test Var", 0);
 
     SmartDashboard.putNumber("test Var", testVar);
     testVar2 = testVar;
     SmartDashboard.putNumber("test Var 2", testVar2);
+    */
 
     
   }
