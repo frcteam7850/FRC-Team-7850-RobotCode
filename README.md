@@ -3,7 +3,7 @@ Current Robot Code
 
 # Last Changlog
 - added flywheel code
-- added [flywheel subsystem]()
+- added [flywheel subsystem](https://github.com/frcteam7850/FRC-Team-7850-RobotCode/blob/main/Main%20Robot%20Code/src/main/java/frc/robot/subsystems/FlywheelSubsystem.java)
 - rough outline for flywheel
 - cleaned up some minor things with code to allow for easy flywheel implementatation
 
