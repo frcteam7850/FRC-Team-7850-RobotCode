@@ -2,7 +2,9 @@
 Current Robot Code
 
 # Last Changlog
-- updated drive to use diffrental drive
+- added flywheel code
+- rough outline for flywheel
+- cleaned up some minor things with code to allow for easy flywheel implementatation
 
 # To-Do List
 ## Programing To-Dos
