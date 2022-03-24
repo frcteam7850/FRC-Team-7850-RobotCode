@@ -3,6 +3,7 @@ Current Robot Code
 
 # Last Changlog
 - added flywheel code
+- added [flywheel subsystem]()
 - rough outline for flywheel
 - cleaned up some minor things with code to allow for easy flywheel implementatation
 
@@ -20,7 +21,10 @@ Current Robot Code
 - [ ] [Tune PID Controller](https://github.com/frcteam7850/FRC-Team-7850-RobotCode#pid-tuned)
 - [ ] [Test Code](https://github.com/frcteam7850/FRC-Team-7850-RobotCode#tested)
 ## Build To-Dos
-- [ ] Have more then just a chasis
+- [x] Have more then just a chasis
+- [x] Build Flywheels
+- [ ] Build Flywheel Cover
+- [ ] Build Intake
 ## Eletrical To-Dos
 - [x] Wire Drive
 - [x] Rewire Drive /(first time)
