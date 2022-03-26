@@ -20,12 +20,12 @@ public final class Constants {
 
     public static final class ControlCon{
 
-        public static final int kLeftStickPort = 0;
-        public static final int kRightStickPort = 1;
+        public static final int kLeftStickPort = 1;
+        public static final int kRightStickPort = 0;
 
         public static final class Drive{
             public static final boolean kEnableDefaltDrive = true;
-            public static final boolean kDefaltDrive = false; //false = tank, true = arcade
+            public static final boolean kDefaltDrive = true; //false = tank, true = arcade
             public static final boolean kEnableDriveSwitch = false;
 
             public static final int kTankDriveBut = 6;
@@ -105,7 +105,7 @@ public final class Constants {
         public static double kMinOutput = -0.2;
     }
     public static final class FlyCon{
-        public static final boolean kMotor1Invert = false;
+        public static final boolean kMotor1Invert = true;
         public static final boolean kMotor2Invert = true;
 
         public static final class PID{

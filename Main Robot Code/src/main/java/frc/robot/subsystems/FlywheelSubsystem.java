@@ -31,7 +31,7 @@ public class FlywheelSubsystem extends SubsystemBase {
 
     flyMotor1.setInverted(FlyCon.kMotor1Invert);
 
-    flyMotor2.follow(flyMotor1, FlyCon.kMotor2Invert);
+    //flyMotor2.follow(flyMotor1, false);
 
     flyPID = flyMotor1.getPIDController();
     flyEncoder = flyMotor1.getEncoder();
@@ -43,10 +43,13 @@ public class FlywheelSubsystem extends SubsystemBase {
   public void periodic() {
 
     //runs continuasly like robotperiodic
+    //flyMotor1.set(0.45);
+    System.out.println("test");
+    
     
   }
 
-  public void setFlyPID(){
+  /*public void setFlyPID(){
     
   }
   public void warmFly(){
@@ -58,8 +61,13 @@ public class FlywheelSubsystem extends SubsystemBase {
     if(emgStop = false){
         
     }
+  }*/
+  public void valueSetFly(double speed){
+    if(emgStop = false){
+      flyMotor1.set(speed);
+    }
   }
-  public void idleFly(){
+  /*public void idleFly(){
     if(emgStop = false){
         
     }
@@ -79,7 +87,7 @@ public class FlywheelSubsystem extends SubsystemBase {
     if(emgStop = false){
 
     }
-  }
+  }*/
   public void dispPIDInfo(){
 
   }

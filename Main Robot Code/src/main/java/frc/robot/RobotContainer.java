@@ -6,12 +6,14 @@ package frc.robot;
 
 
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.FlywheelSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.Constants.ControlCon;
 import frc.robot.commands.PIDDriveCmd;
 import frc.robot.commands.TankDriveCmd;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ArcadeDriveCmd;
+import frc.robot.commands.ManualRunFlyCmd;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 
@@ -20,6 +22,7 @@ public class RobotContainer {
   
   
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
+  private final FlywheelSubsystem flywheelSubsystem = new FlywheelSubsystem();
 
   private final Joystick leftStick = new Joystick(ControlCon.kLeftStickPort);
   private final Joystick rightStick = new Joystick(ControlCon.kRightStickPort);
@@ -46,6 +49,7 @@ public class RobotContainer {
         () -> ControlCon.Drive.sStraitDriveBut.getRawButton(ControlCon.Drive.kStraitDriveBut)
         )
     );
+    flywheelSubsystem.setDefaultCommand(new ManualRunFlyCmd(flywheelSubsystem, () -> leftStick.getRawAxis(1)));
     }
     }
     
@@ -75,7 +79,9 @@ public class RobotContainer {
       () -> rightStick.getRawAxis(ControlCon.Drive.kSpeedDriveAxis), 
       () -> rightStick.getRawAxis(ControlCon.Drive.kTurnDriveAxis)
       )
-    );
+    ); 
+
+    //new JoystickButton(leftStick, 1).whenActive(new ManualRunFlyCmd(flywheelSubsystem, () -> leftStick.getRawAxis(1))); //-------- Flywheel Testing Code
     }
     
     
