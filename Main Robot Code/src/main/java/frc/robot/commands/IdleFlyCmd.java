@@ -5,44 +5,34 @@
 package frc.robot.commands;
 
 
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.FlywheelSubsystem;
 
-import java.util.function.Supplier;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
-
-
-public class ManualRunFlyCmd extends CommandBase {
+public class IdleFlyCmd extends CommandBase {
   
-  //private final ExampleSubsystem m_subsystem; //new ExampleSubsystem();
+  private final FlywheelSubsystem flywheelSubsystem; //new ExampleSubsystem();
   //use private final varable_type varable_name; to make new varable wich you can grab in constructor
-  private final FlywheelSubsystem flywheelSubsystem;
-  private final Supplier<Double> speedFunction;
-
-  public ManualRunFlyCmd(FlywheelSubsystem flywheelSubsystem, Supplier<Double> speedFunction) {
+  
+  public IdleFlyCmd(FlywheelSubsystem flywheelSubsystem) {
     this.flywheelSubsystem = flywheelSubsystem;
-    this.speedFunction = speedFunction;
     //use this.varable_name = varable_name; to get varables into command 
     //also make sure to add varable_name in parameters
-    //addRequirements(m_subsystem);
+    addRequirements(flywheelSubsystem);
   }
   
   @Override
   public void initialize() {
     //put setup code here
-    System.out.println("ManualRunFlyCmd Started");
   }
   
   @Override
   public void execute() {
-      flywheelSubsystem.valueSetFly(speedFunction.get());
     //this function called repetivly while command is running
-    addRequirements(flywheelSubsystem);
   }
 
   @Override
   public void end(boolean interrupted) {
-    System.out.println("ManualRunFlyCmd Ended");
     //last end stuff ran at end
     //bool interupted is true if command is stoped
   }

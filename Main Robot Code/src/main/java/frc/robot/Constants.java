@@ -72,8 +72,18 @@ public final class Constants {
         public static final int kRightMotor1Port = 1;
         public static final int kRightMotor2Port = 2;
 
-        public static final int kFlyMotor1 = 5;
-        public static final int kFlyMotor2 = 6;
+        public static final int kFlyMotor1 = 6;
+        public static final int kFlyMotor2 = 5;
+
+        /*
+        things to add
+
+        will have 1 NEO motor for intake arm with a gearbox and spark max motor controller
+        
+        pneumatics
+
+        1 double solinoid connected to two pistons for rasing and lowering intake arm
+        */
 
         //public static final int kPDHubPort = 11; //power distrubution hub
         //public static final int kPSHubPort = 12; //pnumatics hub
@@ -91,30 +101,67 @@ public final class Constants {
         public static final boolean kRightMotorInvert = true;
 
         public static final double kEncoderConversion = 0.0373999125427; //feet per encoder tick
-    }
-    public static final class PIDCon{
-        public static double kP = 0.3;
-        public static double kI = 0;
-        public static double kD = 0;
+    
+        public static final class PIDCon{
+            public static double kP = 0.3;
+            public static double kI = 0;
+            public static double kD = 0;
 
-        //public static double kIZone = 100;
+            //public static double kIZone = 100;
 
-        public static double ksetpoint = 10;
+            public static double ksetpoint = 10;
         
-        public static double kMaxOutput = 0.2;
-        public static double kMinOutput = -0.2;
+            public static double kMaxOutput = 0.2;
+            public static double kMinOutput = -0.2;
+        }
     }
     public static final class FlyCon{
-        public static final boolean kMotor1Invert = true;
-        public static final boolean kMotor2Invert = true;
+        public static final class Motors{
+            public static final boolean kMotor1Invert = true;
+            public static final boolean kMotor2Invert = true;
+            public static final boolean kMotorDiffrenceInvert = kMotor1Invert ^ kMotor2Invert;
+        }
+        public static final class DiffPID{
 
-        public static final class PID{
+        }
+        public static final class VelPID{
             public static final double kP = 0.5;
             public static final double kI = 0;
             public static final double kD = 0;
 
         }
+        public static final class VelZones{
+            public static final double idleRPM = 10;
+            public static final double minWarmRPM = 85;
+            public static final double maxWarmRPM = 95;
+            public static final double minTargetRPM = 100;
+            public static final double maxTargetRPM = 180;
+            public static final double core1RPM = 110;
+            public static final double core2RPM = 140;
+            public static final double core3RPM = 150;
+        }
     }
+    
+
+
+
+
+    //unit converstion below
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static final class UnitConversion{
 

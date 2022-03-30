@@ -81,7 +81,7 @@ public class RobotContainer {
       )
     ); 
 
-    //new JoystickButton(leftStick, 1).whenActive(new ManualRunFlyCmd(flywheelSubsystem, () -> leftStick.getRawAxis(1))); //-------- Flywheel Testing Code
+    //new JoystickButton(leftStick, 1).whileHeld(new ManualRunFlyCmd(flywheelSubsystem, () -> leftStick.getRawAxis(1)));  //-------- Flywheel Testing Code
     }
     
     

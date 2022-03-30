@@ -6,7 +6,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveCon;
-import frc.robot.Constants.PIDCon;
 import frc.robot.Constants.RobotPort;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -105,25 +104,25 @@ public class DriveSubsystem extends SubsystemBase {
   
   
   public void PIDDrive(double setpoint){
-    drivePIDL.setP(PIDCon.kP);
-    drivePIDL.setI(PIDCon.kI);
-    drivePIDL.setD(PIDCon.kD);
+    drivePIDL.setP(DriveCon.PIDCon.kP);
+    drivePIDL.setI(DriveCon.PIDCon.kI);
+    drivePIDL.setD(DriveCon.PIDCon.kD);
     //drivePIDL.setIZone(PIDCon.kIZone);
-    drivePIDL.setOutputRange(PIDCon.kMinOutput, PIDCon.kMaxOutput);
+    drivePIDL.setOutputRange(DriveCon.PIDCon.kMinOutput, DriveCon.PIDCon.kMaxOutput);
 
-    drivePIDR.setP(PIDCon.kP);
-    drivePIDR.setI(PIDCon.kI);
-    drivePIDR.setD(PIDCon.kD);
+    drivePIDR.setP(DriveCon.PIDCon.kP);
+    drivePIDR.setI(DriveCon.PIDCon.kI);
+    drivePIDR.setD(DriveCon.PIDCon.kD);
     //drivePIDR.setIZone(PIDCon.kIZone);
-    drivePIDR.setOutputRange(PIDCon.kMinOutput, PIDCon.kMaxOutput);
+    drivePIDR.setOutputRange(DriveCon.PIDCon.kMinOutput, DriveCon.PIDCon.kMaxOutput);
 
-    SmartDashboard.putNumber("P Gain", PIDCon.kP);
-    SmartDashboard.putNumber("I Gain", PIDCon.kI);
-    SmartDashboard.putNumber("D Gain", PIDCon.kD);
+    SmartDashboard.putNumber("P Gain", DriveCon.PIDCon.kP);
+    SmartDashboard.putNumber("I Gain", DriveCon.PIDCon.kI);
+    SmartDashboard.putNumber("D Gain", DriveCon.PIDCon.kD);
     //SmartDashboard.putNumber("I Zone", PIDCon.kIZone);
-    SmartDashboard.putNumber("Min Output", PIDCon.kMinOutput);
-    SmartDashboard.putNumber("MaxOutput", PIDCon.kMaxOutput);
-    SmartDashboard.putNumber("Setpoint", PIDCon.ksetpoint);
+    SmartDashboard.putNumber("Min Output", DriveCon.PIDCon.kMinOutput);
+    SmartDashboard.putNumber("MaxOutput", DriveCon.PIDCon.kMaxOutput);
+    SmartDashboard.putNumber("Setpoint", DriveCon.PIDCon.ksetpoint);
     SmartDashboard.putNumber("EncoderLeft", driveEncoderL.getPosition());
     SmartDashboard.putNumber("EncoderRigh", driveEncoderR.getPosition());
 
