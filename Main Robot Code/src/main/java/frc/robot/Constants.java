@@ -64,6 +64,12 @@ public final class Constants {
             public static final double mButton2Dist = -5;
             public static final double mButton2Rotation = mAutoDist/mButton2Dist;
         }
+      public static final class Intake{
+        public static final int lowerIntakeBut = 5;
+        public static final int raiseIntakeBut = 6;
+        public static final int intakeInBut = 7;
+        public static final int intakeOutBut = 8;
+      }
         
     }
     public static final class RobotPort{
@@ -86,7 +92,7 @@ public final class Constants {
         */
 
         //public static final int kPDHubPort = 11; //power distrubution hub
-        //public static final int kPSHubPort = 12; //pnumatics hub
+        public static final int kPSHubPort = 12; //pnumatics hub
     }
 
     public static final class DriveCon{
@@ -140,6 +146,14 @@ public final class Constants {
             public static final double core2RPM = 140;
             public static final double core3RPM = 150;
         }
+
+    }
+
+    public static final class IntakeCon{
+      public static final int kIntakeMotorCanID = 7;
+      public static final int kIntakeSolenoidForwardPort = 8;
+      public static final int kIntakeSolenoidReversePort = 9;
+      public static final double kIntakeSpeed = 0.2;
     }
     
 
