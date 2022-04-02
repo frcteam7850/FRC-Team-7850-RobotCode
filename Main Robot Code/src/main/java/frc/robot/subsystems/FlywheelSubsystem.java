@@ -45,7 +45,7 @@ public class FlywheelSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
 
-    //runs continuasly like robotperiodic
+    //runs continually like robotperiodic
     
     System.out.println("right " + flyEncoder.getVelocity());
     System.out.println("left  " + flyEncoder2.getVelocity());
@@ -57,34 +57,34 @@ public class FlywheelSubsystem extends SubsystemBase {
     //inital code for PID
   }
   public void warmFly(){
-    //sends a value just below target range so that way it dosent take as long to get to target range (more for practice when shooting multiple in a row so we arnt waiting on flywheel)
+    //sends a value just below target range so that way it doesn't take as long to get to target range (more for practice when shooting multiple in a row so we aren't waiting on flywheel)
   }
   public void runFly(){
-    //runs flywheel inside a target range, adjestable for distence mabye
+    //runs flywheel inside a target range, adjustable for distance maybe
   }
   public void valueSetFly(double speed){
-      flyMotor1.set(speed); //sets a manual value to flywheel doent use speed PID but will use diffrence PID
+      flyMotor1.set(speed); //sets a manual value to flywheel doesn't use speed PID but will use difference PID
   }
   public void idleFly(){
-    //sets a very low value outside warm range to spin flywheel at low speeds for instence dropping a ball rather then shooting
+    //sets a very low value outside warm range to spin flywheel at low speeds for instance dropping a ball rather then shooting
   }
   public void stopFly(){
     //sends 0 to motors and turns off PIDs
   }
   public void haltFly(){
-    //brakes flywheel for emergencies not for constent use
+    //brakes flywheel for emergencies not for constant use
   }
   
   public void dispPIDInfo(){
 
   }
 
-  //create nessary functions/methods which the command will use
+  //create necessary functions/methods which the command will use
   
   
 }
 
-//normally ther is also a simulationperiodic function but were not using it, add if nessary below periodic function
+//normally there is also a simulationperiodic function but were not using it, add if necessary below periodic function
   /*
   @Override
   public void simulationPeriodic() {
