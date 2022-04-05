@@ -13,13 +13,13 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants.*;
 
-public class IntakeSubsystem extends SubsystemBase {
+public class BallStopSubsystem extends SubsystemBase {
 
-  DoubleSolenoid intakeDoubleSolenoid = new DoubleSolenoid(RobotPort.kPSHubPort, PneumaticsModuleType.REVPH, RobotPort.kIntakeForwardPort, RobotPort.kIntakeBackPort);
-  CANSparkMax intakeMotor = new CANSparkMax(RobotPort.kIntakeMotorPort, CANSparkMax.MotorType.kBrushless);
+  DoubleSolenoid intakeDoubleSolenoid = new DoubleSolenoid(RobotPort.kPSHubPort, PneumaticsModuleType.REVPH, RobotPort.kBallStopForwardPort, RobotPort.kBallStopBackPort);
+  
 
   /** Creates a new Intake. */
-  public IntakeSubsystem() {
+  public BallStopSubsystem() {
 
   }
 
@@ -28,19 +28,15 @@ public class IntakeSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void intakeDown() {
+  public void BallOpen() {
     intakeDoubleSolenoid.set(kReverse);
   }
 
-  public void intakeUp() {
+  public void BallClose() {
     intakeDoubleSolenoid.set(kForward);
   }
 
-  public void intakeStop() {
-    intakeDoubleSolenoid.set(kOff);
-  }
+  
 
-  public void runIntakeMotor(double speed) {
-    intakeMotor.set(speed);
-  }
+  
 }

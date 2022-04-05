@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import frc.robot.subsystems.BallStopSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.FlywheelSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -11,12 +12,16 @@ import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.Constants.ControlCon;
 import frc.robot.commands.PIDDriveCmd;
 import frc.robot.commands.RaiseIntakeCmd;
+import frc.robot.commands.RunFlyCmd;
 import frc.robot.commands.RunIntakeWheels;
 import frc.robot.commands.TankDriveCmd;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ArcadeDriveCmd;
+import frc.robot.commands.CloseBallStopCmd;
+import frc.robot.commands.StopFlyCmd;
 import frc.robot.commands.LowerIntakeCmd;
 import frc.robot.commands.ManualRunFlyCmd;
+import frc.robot.commands.OpenBallStopCmd;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 public class RobotContainer {
@@ -24,12 +29,14 @@ public class RobotContainer {
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
   private final FlywheelSubsystem flywheelSubsystem = new FlywheelSubsystem();
   public final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  private final BallStopSubsystem ballStopSubsystem = new BallStopSubsystem();
 
   private final Joystick leftStick = new Joystick(ControlCon.kLeftStickPort);
   private final Joystick rightStick = new Joystick(ControlCon.kRightStickPort);
 
   public RobotContainer() {
 
+    //determains what drive system and if to enable a drive system
     if (ControlCon.Drive.kEnableDefaltDrive) {
       if (ControlCon.Drive.kDefaltDrive) {
         driveSubsystem.setDefaultCommand(
@@ -50,11 +57,11 @@ public class RobotContainer {
   }
 
   private void configureButtonBindings() {
-
-    new JoystickButton(ControlCon.PID.sPIDActiveBut1, ControlCon.PID.kPIDActiveBut1)
+    //Drive PID to Buttons
+    /*new JoystickButton(ControlCon.PID.sPIDActiveBut1, ControlCon.PID.kPIDActiveBut1)
         .whenHeld(new PIDDriveCmd(driveSubsystem, ControlCon.PID.mButton1Rotation));
     new JoystickButton(ControlCon.PID.sPIDActiveBut2, ControlCon.PID.kPIDActiveBut2)
-        .whenHeld(new PIDDriveCmd(driveSubsystem, ControlCon.PID.mButton1Rotation));
+        .whenHeld(new PIDDriveCmd(driveSubsystem, ControlCon.PID.mButton1Rotation));*/ 
 
     // lower intake button
     new JoystickButton(rightStick, ControlCon.Intake.lowerIntakeBut).whenPressed(new LowerIntakeCmd(intakeSubsystem));
@@ -65,22 +72,19 @@ public class RobotContainer {
     // run intake reverse (outaking)
     new JoystickButton(rightStick, ControlCon.Intake.intakeOutBut).whileHeld(new RunIntakeWheels(intakeSubsystem, false));
 
-    if (ControlCon.Drive.kEnableDriveSwitch) {
-      new JoystickButton(ControlCon.Drive.sTankDriveBut, ControlCon.Drive.kTankDriveBut).whenPressed(
-          new TankDriveCmd(driveSubsystem,
-              () -> rightStick.getRawAxis(ControlCon.Drive.kRightDriveAxis),
-              () -> leftStick.getRawAxis(ControlCon.Drive.kLeftDriveAxis),
-              () -> ControlCon.Drive.sStraitDriveBut.getRawButton(ControlCon.Drive.kStraitDriveBut)));
-
-      new JoystickButton(ControlCon.Drive.sArcadeDriveBut, ControlCon.Drive.kArcadeDriveBut).whenPressed(
-          new ArcadeDriveCmd(driveSubsystem,
-              () -> rightStick.getRawAxis(ControlCon.Drive.kSpeedDriveAxis),
-              () -> rightStick.getRawAxis(ControlCon.Drive.kTurnDriveAxis)));
-
-      // new JoystickButton(leftStick, 1).whileHeld(new
-      // ManualRunFlyCmd(flywheelSubsystem, () -> leftStick.getRawAxis(1)));
-      // //-------- Flywheel Testing Code
-    }
+    
+    //run flywheel
+    new JoystickButton(rightStick, 1).whileHeld(
+      new RunFlyCmd(flywheelSubsystem, () -> rightStick.getRawAxis(1))
+    );
+    //stop flywheel
+    new JoystickButton(rightStick, 2).whileHeld(
+      new StopFlyCmd(flywheelSubsystem)
+    );
+    //open ball stop
+    new JoystickButton(rightStick, 3).whileHeld(new OpenBallStopCmd(ballStopSubsystem));
+    //close ball stop
+    new JoystickButton(rightStick, 4).whileHeld(new CloseBallStopCmd(ballStopSubsystem));
 
   }
 

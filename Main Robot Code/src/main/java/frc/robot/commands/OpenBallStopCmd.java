@@ -4,25 +4,20 @@
 
 package frc.robot.commands;
 
-
-import java.util.function.Supplier;
-
+import frc.robot.subsystems.BallStopSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.FlywheelSubsystem;
 
 
-public class RunFlyCmd extends CommandBase {
+public class OpenBallStopCmd extends CommandBase {
   
-  private final FlywheelSubsystem flywheelSubsystem; //new ExampleSubsystem();
-  private final Supplier<Double> setpoint;
+  private final BallStopSubsystem ballStopSubsystem; //new ExampleSubsystem();
   //use private final varable_type varable_name; to make new varable wich you can grab in constructor
   
-  public RunFlyCmd(FlywheelSubsystem flywheelSubsystem, Supplier<Double> setpoint) {
-    this.flywheelSubsystem = flywheelSubsystem;
-    this.setpoint = setpoint;
+  public OpenBallStopCmd(BallStopSubsystem ballStopSubsystem) {
+    this.ballStopSubsystem = ballStopSubsystem;
     //use this.varable_name = varable_name; to get varables into command 
     //also make sure to add varable_name in parameters
-    addRequirements(flywheelSubsystem);
+    //addRequirements(m_subsystem);
   }
   
   @Override
@@ -32,9 +27,8 @@ public class RunFlyCmd extends CommandBase {
   
   @Override
   public void execute() {
-
-    flywheelSubsystem.setFlyPID(setpoint.get());
     //this function called repetivly while command is running
+    ballStopSubsystem.BallOpen();
   }
 
   @Override

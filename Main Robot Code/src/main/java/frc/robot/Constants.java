@@ -24,15 +24,8 @@ public final class Constants {
         public static final int kRightStickPort = 0;
 
         public static final class Drive{
-            public static final boolean kEnableDefaltDrive = true;
+            public static final boolean kEnableDefaltDrive = true; //always keep true unless testing
             public static final boolean kDefaltDrive = true; //false = tank, true = arcade
-            public static final boolean kEnableDriveSwitch = false;
-
-            public static final int kTankDriveBut = 6;
-            public static final Joystick sTankDriveBut = new Joystick(kLeftStickPort);
-
-            public static final int kArcadeDriveBut = 9;
-            public static final Joystick sArcadeDriveBut = new Joystick(kLeftStickPort);
 
             public static final int kSpeedDriveAxis = 1;
             public static final int kTurnDriveAxis = 0;
@@ -81,15 +74,15 @@ public final class Constants {
         public static final int kFlyMotor1 = 6;
         public static final int kFlyMotor2 = 5;
 
-        /*
-        things to add
+        public static final int kIntakeMotorPort = 7;
 
-        will have 1 NEO motor for intake arm with a gearbox and spark max motor controller
+        public static final int kIntakeForwardPort = 8;
+        public static final int kIntakeBackPort = 9;
+
+        public static final int kBallStopForwardPort = 6;
+        public static final int kBallStopBackPort = 7;
+
         
-        pneumatics
-
-        1 double solinoid connected to two pistons for rasing and lowering intake arm
-        */
 
         //public static final int kPDHubPort = 11; //power distrubution hub
         public static final int kPSHubPort = 12; //pnumatics hub
@@ -101,7 +94,7 @@ public final class Constants {
 
         public static final double kMaxSpeed = 0.8;
         public static final double kLeftSpeedMod = 1;
-        public static final double kRightSpeedMod = 1; //.9752 fir old robot
+        public static final double kRightSpeedMod = 1; //.9752 for old robot
 
         public static final boolean kLeftMotorInvert = false;
         public static final boolean kRightMotorInvert = true;
@@ -131,9 +124,14 @@ public final class Constants {
 
         }
         public static final class VelPID{
-            public static final double kP = 0.5;
+            public static final double kP = 0.0009;
             public static final double kI = 0;
-            public static final double kD = 0;
+            public static final double kD = 0.005;
+            public static final double kIz = 0;
+            public static final double kFF = 0.000185;
+            public static final double kMaxRPM = 3000;
+            public static final double kMaxOutput = 1;
+            public static final double kMinOutput = -1;
 
         }
         public static final class VelZones{
@@ -150,11 +148,12 @@ public final class Constants {
     }
 
     public static final class IntakeCon{
-      public static final int kIntakeMotorCanID = 7;
-      public static final int kIntakeSolenoidForwardPort = 8;
-      public static final int kIntakeSolenoidReversePort = 9;
-      public static final double kIntakeSpeed = 0.2;
+      public static final double kIntakeSpeed = 0.7;
+
+      public static final double kMaxPressure = 120;
+      public static final double kMinPressure = 100;
     }
+    
     
 
 

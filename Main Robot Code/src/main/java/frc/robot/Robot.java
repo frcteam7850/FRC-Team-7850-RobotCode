@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import frc.robot.Constants.IntakeCon;
 import frc.robot.Constants.RobotPort;
 
 
@@ -74,7 +75,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
-    compressor.enableDigital();
+    compressor.enableAnalog(IntakeCon.kMinPressure, IntakeCon.kMaxPressure);
   }
 
   /** This function is called periodically during autonomous. */
@@ -91,7 +92,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     if(!compressor.enabled()){
-      compressor.enableDigital();
+      compressor.enableAnalog(IntakeCon.kMinPressure, IntakeCon.kMaxPressure);
     }
   }
 
